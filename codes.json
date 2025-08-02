@@ -1,6 +1,6 @@
 {
-  "Intergas": {
-    "HRE 24/18": {
+  "defaults": {
+    "HRE": {
       "1": {
         "code": "1",
         "titel": "Geen vlamdetectie",
@@ -218,10 +218,7 @@
         ]
       }
     },
-    "HRE 28/24": {},
-    "HRE 36/30": {},
-    "HRE 36/48": {},
-    "Xtreme 24": {
+    "Xtreme": {
       "10": {
         "code": "10",
         "titel": "Geen communicatie met displayprint",
@@ -444,9 +441,16 @@
           "Vervang indien nodig de ventilator."
         ]
       }
-    },
-    "Xtreme 30": {},
-    "Xtreme 36": {},
-    "Xtreme 36 CW6": {}
+    }
+  },
+  "Intergas": {
+    "HRE 24/18":   { "inherits": "HRE" },
+    "HRE 28/24":   { "inherits": "HRE" },
+    "HRE 36/30":   { "inherits": "HRE" },
+    "HRE 36/48":   { "inherits": "HRE" },
+    "Xtreme 24":   { "inherits": "Xtreme" },
+    "Xtreme 30":   { "inherits": "Xtreme" },
+    "Xtreme 36":   { "inherits": "Xtreme" },
+    "Xtreme 36 CW6": { "inherits": "Xtreme" }
   }
 }

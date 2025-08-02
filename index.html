@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>CVCheck</title>
+  <title>CVCheck – Intergas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
@@ -93,7 +93,7 @@
 <body>
 <header>
   <h1>CVCheck</h1>
-  <div style="font-size:1.15em; margin-top:.3rem;"></div>
+  <div style="font-size:1.15em; margin-top:.3rem;">Intergas HRE & Xtreme</div>
 </header>
 
 <div class="tabs">
@@ -211,9 +211,11 @@
     }
     function updateInfo() {
       const merk = merkSel.value, type = typeSel.value, param = paramSel.value;
-      const uitleg = parameters[merk]?.[type]?.[param] || '';
-      paramInfo.innerHTML = param 
-        ? `<strong>Parameter ${param}</strong><br>${uitleg}` 
+      const paramObj = parameters[merk]?.[type]?.[param];
+      paramInfo.innerHTML = paramObj
+        ? `<strong>${paramObj.naam}</strong><br>
+            <b>Uitleg:</b> ${paramObj.uitleg}<br>
+            <b>Fabrieksinstelling:</b> ${paramObj.fabrieksinstelling}`
         : 'Selecteer een parameter voor meer info.';
     }
     merkSel.addEventListener("change", updateTypes);

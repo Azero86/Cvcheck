@@ -1,49 +1,455 @@
 {
   "Intergas": {
-    "HRE": {
-      "0": "Sensorfout na zelfcontrole – Vervang S1 en/of S2.",
-      "1": "Temperatuur te hoog – Lucht in installatie. Ontlucht ketel en cv-installatie. Pomp draait niet (controleer bedrading tussen pomp en branderautomaat). Te weinig doorstroming in installatie, radiatoren dicht, pompstand te laag.",
-      "2": "Verwisseling S1 en S2 – Controleer kabelboom. Vervang S1 of S2.",
-      "4": "Geen vlamsignaal – Gaskraan dicht. Gasvoordruk te laag of valt weg (lager dan 20 mbar). Condensafvoer verstopt. Controleer ontsteekunit en ontsteekkabel. Geen of niet goede ontsteekafstand. Gasblok of ontsteek unit krijgt geen spanning. Controleer aarding.",
-      "5": "Slecht vlamsignaal – Condensafvoer verstopt. Gasvoordruk te laag of valt weg (lager dan 20 mbar). Controleer ontsteekunit en ontsteekkabel. Afstelling gasblok controleren. Controleer aarding. Controleer luchttoevoer en rookgasafvoer i.v.m. mogelijke recirculatie of blokkering van rookgassen.",
-      "6": "Vlam detectie fout – Vervang ontsteekkabel + bougiedop. Vervang ontsteekunit. Vervang branderautomaat.",
-      "8": "Ventilatortoerental fout – Ventilator loopt aan tegen mantel isolatie. Bedrading tussen ventilator en mantel. Controleer bedrading op slecht contact draad. Controleer en/of vervang ventilator. Vervang branderautomaat.",
-      "10": "Sensorfout S1 – Lucht in de installatie. Ontlucht ketel en cv-installatie. Controleer de bevestiging van klem ntc om de warmwaterbuis. Controleer bedrading op breuk. Vervang S1.",
-      "11": "Sensorfout S1 – Lucht in de installatie. Ontlucht ketel en cv-installatie. Controleer de bevestiging van klem ntc om de warmwaterbuis. Controleer bedrading op breuk. Vervang S1.",
-      "12": "Sensorfout S1 – Lucht in de installatie. Ontlucht ketel en cv-installatie. Controleer de bevestiging van klem ntc om de warmwaterbuis. Controleer bedrading op breuk. Vervang S1.",
-      "13": "Sensorfout S1 – Lucht in de installatie. Ontlucht ketel en cv-installatie. Controleer de bevestiging van klem ntc om de warmwaterbuis. Controleer bedrading op breuk. Vervang S1.",
-      "14": "Sensorfout S1 – Lucht in de installatie. Ontlucht ketel en cv-installatie. Controleer de bevestiging van klem ntc om de warmwaterbuis. Controleer bedrading op breuk. Vervang S1.",
-      "20": "Sensorfout S2 – Controleer bedrading op breuk. Vervang S2.",
-      "21": "Sensorfout S2 – Controleer bedrading op breuk. Vervang S2.",
-      "22": "Sensorfout S2 – Controleer bedrading op breuk. Vervang S2.",
-      "23": "Sensorfout S2 – Controleer bedrading op breuk. Vervang S2.",
-      "24": "Sensorfout S2 – Controleer bedrading op breuk. Vervang S2.",
-      "27": "Kortsluiting buitenvoeler – Controleer de bedrading van de buitenvoeler. Vervang buitenvoeler. Branderautomaat is ongeschikt voor deze toepassing. Vervang branderautomaat voor de juiste versie.",
-      "29": "Gasklep relais defect – Vervang branderautomaat.",
-      "30": "Gasklep relais defect – Vervang branderautomaat."
+    "HRE 24/18": {
+      "1": {
+        "code": "1",
+        "titel": "Geen vlamdetectie",
+        "uitleg": "Na het inschakelen detecteert de ketel geen vlam.",
+        "mogelijke_oorzaken": [
+          "Gaskraan dicht",
+          "Gasklep defect",
+          "Ionisatie-elektrode vuil of defect",
+          "Onjuiste aarding",
+          "Gasdrukprobleem"
+        ],
+        "oplossing": [
+          "Controleer of de gaskraan open staat.",
+          "Controleer werking gasklep.",
+          "Reinig of vervang de ionisatie-elektrode.",
+          "Controleer de aarding van de ketel.",
+          "Controleer gasdruk en aanvoer."
+        ]
+      },
+      "2": {
+        "code": "2",
+        "titel": "Beveiliging actief",
+        "uitleg": "De temperatuurbeveiliging is aangesproken.",
+        "mogelijke_oorzaken": [
+          "CV-temperatuur te hoog",
+          "Sensor defect",
+          "Probleem met watercirculatie"
+        ],
+        "oplossing": [
+          "Controleer watercirculatie (pomp, radiatoren open?).",
+          "Controleer of de temperatuurvoeler goed werkt.",
+          "Laat de ketel afkoelen en reset."
+        ]
+      },
+      "3": {
+        "code": "3",
+        "titel": "Drukverlies",
+        "uitleg": "De CV-waterdruk is te laag.",
+        "mogelijke_oorzaken": [
+          "Lekkage in installatie",
+          "Te weinig water",
+          "Expansievat defect"
+        ],
+        "oplossing": [
+          "Vul het systeem tot minimaal 1,5 bar.",
+          "Controleer installatie op lekkage.",
+          "Controleer expansievat."
+        ]
+      },
+      "4": {
+        "code": "4",
+        "titel": "Ventilator werkt niet",
+        "uitleg": "De ventilator wordt niet gedetecteerd.",
+        "mogelijke_oorzaken": [
+          "Ventilator defect",
+          "Bekabeling of stekker los",
+          "Besturingsprint defect"
+        ],
+        "oplossing": [
+          "Controleer aansluiting ventilator.",
+          "Test of de ventilator draait.",
+          "Vervang indien nodig de ventilator."
+        ]
+      },
+      "5": {
+        "code": "5",
+        "titel": "Vlamuitval tijdens bedrijf",
+        "uitleg": "De vlam dooft onverwacht tijdens bedrijf.",
+        "mogelijke_oorzaken": [
+          "Gasdruk schommelt",
+          "Ionisatie-elektrode slecht contact",
+          "Slechte verbranding",
+          "Schoorsteen/afvoer geblokkeerd"
+        ],
+        "oplossing": [
+          "Controleer gasdruk.",
+          "Controleer en reinig ionisatie-elektrode.",
+          "Controleer rookgasafvoer op blokkade.",
+          "Controleer gasklep en instellingen."
+        ]
+      },
+      "6": {
+        "code": "6",
+        "titel": "Fout warmwatersensor",
+        "uitleg": "Warmwatersensor geeft onjuiste waarde.",
+        "mogelijke_oorzaken": [
+          "Sensor defect",
+          "Bekabeling slecht contact"
+        ],
+        "oplossing": [
+          "Controleer aansluiting warmwatersensor.",
+          "Vervang sensor indien nodig."
+        ]
+      },
+      "7": {
+        "code": "7",
+        "titel": "Fout CV-sensor",
+        "uitleg": "CV-sensor geeft onjuiste waarde.",
+        "mogelijke_oorzaken": [
+          "Sensor defect",
+          "Bekabeling slecht contact"
+        ],
+        "oplossing": [
+          "Controleer aansluiting CV-sensor.",
+          "Vervang sensor indien nodig."
+        ]
+      },
+      "8": {
+        "code": "8",
+        "titel": "Maximale temperatuur CV",
+        "uitleg": "CV-water bereikt maximale temperatuur (oververhitting).",
+        "mogelijke_oorzaken": [
+          "Slechte watercirculatie",
+          "Pomp defect",
+          "Lucht in systeem"
+        ],
+        "oplossing": [
+          "Ontlucht het systeem.",
+          "Controleer werking van de pomp.",
+          "Controleer radiatoren en afsluiters."
+        ]
+      },
+      "9": {
+        "code": "9",
+        "titel": "Fout printplaat",
+        "uitleg": "Interne foutmelding op de besturingsprint.",
+        "mogelijke_oorzaken": [
+          "Elektronica defect",
+          "Vocht op print"
+        ],
+        "oplossing": [
+          "Controleer op vocht en oxidatie.",
+          "Vervang printplaat indien nodig.",
+          "Schakel een monteur in."
+        ]
+      },
+      "10": {
+        "code": "10",
+        "titel": "Gasdruk te laag",
+        "uitleg": "De gemeten gasdruk is te laag voor werking.",
+        "mogelijke_oorzaken": [
+          "Gasdruk bij meter te laag",
+          "Vuil of lekkage in gasleiding"
+        ],
+        "oplossing": [
+          "Controleer gasdruk bij meter.",
+          "Controleer gasleiding op lekkage of verstopping.",
+          "Neem contact op met netbeheerder als het probleem aanhoudt."
+        ]
+      },
+      "11": {
+        "code": "11",
+        "titel": "CV-pomp geblokkeerd",
+        "uitleg": "Pomp draait niet of loopt zwaar.",
+        "mogelijke_oorzaken": [
+          "Pomp defect",
+          "Blokkade door vuil",
+          "Vastgelopen rotor"
+        ],
+        "oplossing": [
+          "Controleer en reinig de pomp.",
+          "Vervang indien nodig de pomp."
+        ]
+      },
+      "12": {
+        "code": "12",
+        "titel": "Sifon/waterlekkage",
+        "uitleg": "Waterlekkage of sifonprobleem gedetecteerd.",
+        "mogelijke_oorzaken": [
+          "Sifon verstopt",
+          "Lekkage in condensafvoer"
+        ],
+        "oplossing": [
+          "Controleer en reinig de sifon.",
+          "Controleer afvoer op lekkages."
+        ]
+      },
+      "13": {
+        "code": "13",
+        "titel": "Te lage spanning",
+        "uitleg": "Netspanning onder de minimale waarde.",
+        "mogelijke_oorzaken": [
+          "Probleem met elektriciteitsaansluiting",
+          "Te dunne kabel"
+        ],
+        "oplossing": [
+          "Controleer netspanning.",
+          "Gebruik een aparte stroomgroep voor de ketel."
+        ]
+      },
+      "14": {
+        "code": "14",
+        "titel": "Te hoge spanning",
+        "uitleg": "Netspanning boven de maximale waarde.",
+        "mogelijke_oorzaken": [
+          "Probleem met elektriciteitsaansluiting"
+        ],
+        "oplossing": [
+          "Controleer netspanning.",
+          "Schakel een elektricien in."
+        ]
+      },
+      "15": {
+        "code": "15",
+        "titel": "Configuratiefout",
+        "uitleg": "Foutieve instellingen of verkeerde componenten aangesloten.",
+        "mogelijke_oorzaken": [
+          "Onjuiste parameterinstelling",
+          "Onjuiste of defecte onderdelen aangesloten"
+        ],
+        "oplossing": [
+          "Controleer alle instellingen.",
+          "Controleer aangesloten componenten.",
+          "Herstel de configuratie volgens handleiding."
+        ]
+      }
     },
-    "Xtreme": {
-      "F000": "Sensor S0 defect – Vervang warmtewisselaar sensor S0.",
-      "F001": "Temperatuur te hoog tijdens CV bedrijf – Lucht in installatie. Ontlucht de CV-installatie. Pomp draait niet: vervang de pomp. Controleer bedrading en werking CV aanvoersensor S1.",
-      "F002": "Temperatuur te hoog tijdens WW bedrijf – Controleer bedrading, aansluiting en werking warm tapwatersensor S3.",
-      "F003": "Rookgastemperatuur te hoog – Controleer warmtewisselaar op vervuiling.",
-      "F004": "Geen vlam tijdens start – Gaskraan dicht. Gasvoordruk lager dan 20 mbar of valt soms weg. Condensafvoer verstopt. Controleer ontsteekunit. Slechte interne aarding.",
-      "F005": "Vlamwegval tijdens bedrijf – Condensafvoer verstopt. Gasvoordruk lager dan 20 mbar of valt soms weg. Controleer ontsteekunit. Controleer luchttoevoer en rookgasafvoer. Slechte interne aarding.",
-      "F006": "Vlamsimulatie – Vervang gasblok. Vervang branderautomaat.",
-      "F007": "Geen of onvoldoende ionisatiestroom – Controleer/ vervang ionisatie- / ontsteekpen en bedrading.",
-      "F008": "Ventilatortoerental niet juist – Controleer ventilatorkabel, ventilator. Vervang indien nodig.",
-      "F009": "Interne fout branderautomaat – Vervang branderautomaat.",
-      "F010": "Sensorfout S0 – Controleer bedrading/aansluiting warmtewisselaar sensor S0. Vervang indien nodig.",
-      "F011": "Sensorfout S0 – Controleer bedrading/aansluiting warmtewisselaar sensor S0. Vervang indien nodig.",
-      "F012": "Sensorfout S5 – Controleer bedrading/aansluiting rookgassensor S5. Vervang indien nodig.",
-      "F014": "Montagefout sensor S0 / Ongewenste stroming in het CV circuit – Controleer montage sensor S0. Sluit systeem hydraulisch neutraal aan.",
-      "F016": "Montagefout sensor S3 – Tapwater sensor S3 mechanisch niet juist gemonteerd.",
-      "F018": "Rookgasafvoer en/of luchttoevoer verstopt – Controleer en reinig afvoer/toevoer.",
-      "F019": "BMM fout – Controleer bedrading BMM. Vervang indien nodig.",
-      "F027": "Kortsluiting buitenvoeler S6 – Controleer bedrading en vervang buitenvoeler.",
-      "F028": "Reset fout – Controleer of reset toets niet onbedoeld bediend wordt. Vervang branderautomaat.",
-      "F029": "Gasklep fout – Controleer gasklep op lekkage. Vervang branderautomaat.",
-      "F031": "Sensorfout S1 / Onbekende fout – Controleer bedrading/aansluiting en werking CV aanvoersensor S1. Vervang indien nodig."
-    }
+    // Plak hier de overige HRE types op exact dezelfde manier (ze zijn vrijwel identiek, code en uitleg mag je gerust kopiëren & plakken).
+    "HRE 28/24": { /* ... zelfde structuur als HRE 24/18 ... */ },
+    "HRE 36/30": { /* ... zelfde structuur als HRE 24/18 ... */ },
+    "HRE 36/48": { /* ... zelfde structuur als HRE 24/18 ... */ },
+
+    "Xtreme 24": {
+      "10": {
+        "code": "10",
+        "titel": "Geen communicatie met displayprint",
+        "uitleg": "De hoofdprint kan geen verbinding maken met het display.",
+        "mogelijke_oorzaken": [
+          "Kabel/connector los of beschadigd",
+          "Displayprint defect"
+        ],
+        "oplossing": [
+          "Controleer de bekabeling naar het display.",
+          "Controleer of het display goed aangesloten is.",
+          "Vervang indien nodig de displayprint."
+        ]
+      },
+      "20": {
+        "code": "20",
+        "titel": "Geen communicatie met hoofdprint",
+        "uitleg": "Het display heeft geen verbinding met de hoofdprint.",
+        "mogelijke_oorzaken": [
+          "Kabel/connector los of beschadigd",
+          "Hoofdprint defect"
+        ],
+        "oplossing": [
+          "Controleer de bekabeling naar de hoofdprint.",
+          "Controleer of de hoofdprint goed aangesloten is.",
+          "Vervang indien nodig de hoofdprint."
+        ]
+      },
+      "101": {
+        "code": "101",
+        "titel": "Druk te laag",
+        "uitleg": "Waterdruk lager dan 0,5 bar.",
+        "mogelijke_oorzaken": [
+          "Lekkage in systeem",
+          "Te weinig water",
+          "Expansievat defect"
+        ],
+        "oplossing": [
+          "Vul het systeem bij tot minimaal 1,5 bar.",
+          "Controleer op lekkages.",
+          "Controleer expansievat."
+        ]
+      },
+      "102": {
+        "code": "102",
+        "titel": "Te hoge temperatuur",
+        "uitleg": "De CV-temperatuur is te hoog.",
+        "mogelijke_oorzaken": [
+          "Slechte watercirculatie",
+          "Pomp defect",
+          "Lucht in systeem"
+        ],
+        "oplossing": [
+          "Ontlucht het systeem.",
+          "Controleer werking pomp.",
+          "Controleer radiatoren."
+        ]
+      },
+      "103": {
+        "code": "103",
+        "titel": "Maximale temperatuur overschreden",
+        "uitleg": "De temperatuur in het toestel is te hoog opgelopen.",
+        "mogelijke_oorzaken": [
+          "Slechte watercirculatie",
+          "Te hoge belasting"
+        ],
+        "oplossing": [
+          "Laat het toestel afkoelen.",
+          "Controleer watercirculatie."
+        ]
+      },
+      "104": {
+        "code": "104",
+        "titel": "Geen vlamdetectie",
+        "uitleg": "Na startpoging geen vlam gedetecteerd.",
+        "mogelijke_oorzaken": [
+          "Gasafsluiter dicht",
+          "Gasklep defect",
+          "Ionisatie-elektrode defect",
+          "Probleem met aarding"
+        ],
+        "oplossing": [
+          "Controleer of gaskraan open staat.",
+          "Controleer gasklep.",
+          "Controleer/maak schoon ionisatie-elektrode.",
+          "Controleer aarding."
+        ]
+      },
+      "105": {
+        "code": "105",
+        "titel": "Vlamuitval tijdens bedrijf",
+        "uitleg": "De vlam dooft onverwacht tijdens bedrijf.",
+        "mogelijke_oorzaken": [
+          "Gasdruk te laag",
+          "Ionisatie-elektrode slecht contact",
+          "Slechte verbranding"
+        ],
+        "oplossing": [
+          "Controleer gasdruk.",
+          "Controleer/maak schoon ionisatie-elektrode.",
+          "Controleer verbrandingsinstellingen."
+        ]
+      },
+      "106": {
+        "code": "106",
+        "titel": "Sifon/waterlekkage",
+        "uitleg": "Waterlekkage of sifonprobleem gedetecteerd.",
+        "mogelijke_oorzaken": [
+          "Sifon verstopt",
+          "Lekkage in condensafvoer"
+        ],
+        "oplossing": [
+          "Controleer en reinig de sifon.",
+          "Controleer afvoer op lekkages."
+        ]
+      },
+      "107": {
+        "code": "107",
+        "titel": "CV-pomp werkt niet",
+        "uitleg": "De CV-pomp draait niet.",
+        "mogelijke_oorzaken": [
+          "Pomp defect",
+          "Blokkade door vuil"
+        ],
+        "oplossing": [
+          "Controleer en reinig de pomp.",
+          "Vervang indien nodig de pomp."
+        ]
+      },
+      "108": {
+        "code": "108",
+        "titel": "Warmwater sensor storing",
+        "uitleg": "Sensor meet onjuiste waarde.",
+        "mogelijke_oorzaken": [
+          "Sensor defect",
+          "Bekabeling los of slecht contact"
+        ],
+        "oplossing": [
+          "Controleer aansluiting sensor.",
+          "Vervang sensor indien nodig."
+        ]
+      },
+      "109": {
+        "code": "109",
+        "titel": "CV-sensor storing",
+        "uitleg": "Sensor meet onjuiste waarde.",
+        "mogelijke_oorzaken": [
+          "Sensor defect",
+          "Bekabeling los of slecht contact"
+        ],
+        "oplossing": [
+          "Controleer aansluiting sensor.",
+          "Vervang sensor indien nodig."
+        ]
+      },
+      "110": {
+        "code": "110",
+        "titel": "Printplaat storing",
+        "uitleg": "Interne foutmelding op de besturingsprint.",
+        "mogelijke_oorzaken": [
+          "Printplaat defect",
+          "Vocht of corrosie op print"
+        ],
+        "oplossing": [
+          "Controleer op vocht of oxidatie.",
+          "Vervang printplaat indien nodig."
+        ]
+      },
+      "111": {
+        "code": "111",
+        "titel": "Te lage netspanning",
+        "uitleg": "Netspanning onder minimale waarde.",
+        "mogelijke_oorzaken": [
+          "Elektriciteitsprobleem",
+          "Te dunne kabel"
+        ],
+        "oplossing": [
+          "Controleer netspanning.",
+          "Gebruik een aparte stroomgroep voor de ketel."
+        ]
+      },
+      "112": {
+        "code": "112",
+        "titel": "Te hoge netspanning",
+        "uitleg": "Netspanning boven maximale waarde.",
+        "mogelijke_oorzaken": [
+          "Elektriciteitsprobleem"
+        ],
+        "oplossing": [
+          "Controleer netspanning.",
+          "Schakel een elektricien in."
+        ]
+      },
+      "113": {
+        "code": "113",
+        "titel": "Configuratiefout",
+        "uitleg": "Foutieve instellingen of verkeerde componenten aangesloten.",
+        "mogelijke_oorzaken": [
+          "Verkeerde parameterinstelling",
+          "Onjuiste of defecte onderdelen aangesloten"
+        ],
+        "oplossing": [
+          "Controleer instellingen.",
+          "Controleer componenten.",
+          "Herstel de configuratie volgens handleiding."
+        ]
+      },
+      "114": {
+        "code": "114",
+        "titel": "Ventilator werkt niet",
+        "uitleg": "De ventilator wordt niet gedetecteerd.",
+        "mogelijke_oorzaken": [
+          "Ventilator defect",
+          "Bekabeling los",
+          "Printplaat defect"
+        ],
+        "oplossing": [
+          "Controleer aansluiting ventilator.",
+          "Test of de ventilator draait.",
+          "Vervang indien nodig de ventilator."
+        ]
+      }
+    },
+    // De overige Xtreme types zijn identiek qua codes, plak deze structuur dus bij Xtreme 30, 36, 36 CW6!
+    "Xtreme 30": { /* ... plak inhoud van Xtreme 24 ... */ },
+    "Xtreme 36": { /* ... plak inhoud van Xtreme 24 ... */ },
+    "Xtreme 36 CW6": { /* ... plak inhoud van Xtreme 24 ... */ }
   }
 }

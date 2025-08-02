@@ -441,16 +441,90 @@
           "Vervang indien nodig de ventilator."
         ]
       }
+    },
+    "HReco": {
+      "201": {
+        "code": "201",
+        "titel": "Geen vlamdetectie",
+        "uitleg": "Na het inschakelen detecteert de HReco geen vlam.",
+        "mogelijke_oorzaken": [
+          "Gaskraan dicht",
+          "Defecte ionisatie-elektrode",
+          "Probleem met gasklep",
+          "Aardingsprobleem"
+        ],
+        "oplossing": [
+          "Controleer of gaskraan open staat.",
+          "Controleer en reinig ionisatie-elektrode.",
+          "Controleer gasklepwerking.",
+          "Controleer de aarding."
+        ]
+      },
+      "202": {
+        "code": "202",
+        "titel": "Druk te laag",
+        "uitleg": "Waterdruk in het systeem is onder 0,5 bar.",
+        "mogelijke_oorzaken": [
+          "Lekkage",
+          "Slechte vulling",
+          "Expansievat defect"
+        ],
+        "oplossing": [
+          "Vul installatie bij tot 1,5 bar.",
+          "Controleer op lekkage.",
+          "Controleer expansievat."
+        ]
+      },
+      "203": {
+        "code": "203",
+        "titel": "Overtemperatuur",
+        "uitleg": "De CV-temperatuur is boven de grenswaarde gekomen.",
+        "mogelijke_oorzaken": [
+          "Pomp werkt niet",
+          "Slechte circulatie",
+          "Blokkade in het systeem"
+        ],
+        "oplossing": [
+          "Controleer pompwerking.",
+          "Controleer systeem op blokkades.",
+          "Ontlucht de installatie."
+        ]
+      }
     }
   },
   "Intergas": {
-    "HRE 24/18":   { "inherits": "HRE" },
-    "HRE 28/24":   { "inherits": "HRE" },
-    "HRE 36/30":   { "inherits": "HRE" },
-    "HRE 36/48":   { "inherits": "HRE" },
-    "Xtreme 24":   { "inherits": "Xtreme" },
-    "Xtreme 30":   { "inherits": "Xtreme" },
-    "Xtreme 36":   { "inherits": "Xtreme" },
-    "Xtreme 36 CW6": { "inherits": "Xtreme" }
+    "HRE 24/18": {
+      "inherits": "HRE"
+    },
+    "HRE 28/24": {
+      "inherits": "HRE"
+    },
+    "HRE 36/30": {
+      "inherits": "HRE"
+    },
+    "HRE 36/48": {
+      "inherits": "HRE"
+    },
+    "Xtreme 24": {
+      "inherits": "Xtreme"
+    },
+    "Xtreme 30": {
+      "inherits": "Xtreme"
+    },
+    "Xtreme 36": {
+      "inherits": "Xtreme"
+    },
+    "Xtreme 36 CW6": {
+      "inherits": "Xtreme"
+    },
+    "HReco 24": {
+      "inherits": "HReco"
+    },
+    "HReco 30": {
+      "inherits": "HReco"
+    },
+    "HReco 36": {
+      "inherits": "HReco"
+    }
   }
 }

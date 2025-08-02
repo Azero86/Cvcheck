@@ -45,7 +45,7 @@
       box-shadow: 0 2px 12px #e3061340;
     }
     .container {
-      max-width: 420px;
+      max-width: 480px;
       margin: 1.5rem auto 0 auto;
       padding: 1.3rem;
       background: #fff;
@@ -60,7 +60,7 @@
       display: block;
       margin-top: 1.2rem;
     }
-    select, input {
+    select {
       width: 100%;
       padding: 0.65rem 0.7rem;
       font-size: 1rem;
@@ -79,9 +79,13 @@
     }
     .card strong {
       color: #E30613;
-      font-size: 1.15em;
-      display: inline-block;
-      margin-bottom: .25em;
+      font-size: 1.10em;
+      display: block;
+      margin-bottom: .18em;
+    }
+    .params-list {
+      max-height: 65vh;
+      overflow-y: auto;
     }
     .hide { display: none; }
     @media (max-width: 520px) {
@@ -121,10 +125,7 @@
   <label for="typep">Type</label>
   <select id="typep"></select>
 
-  <label for="param">Parameter</label>
-  <select id="param"></select>
-
-  <div class="card" id="paramInfo"></div>
+  <div class="params-list" id="paramsList"></div>
 </div>
 
 <script>
@@ -191,36 +192,37 @@
     updateTypes();
   }
 
-  // ---- Parameters Tab ----
+  // ---- Parameters Tab (volledige lijst tonen) ----
   function initParamsTab() {
     const merkSel = document.getElementById("merkp");
     const typeSel = document.getElementById("typep");
-    const paramSel = document.getElementById("param");
-    const paramInfo = document.getElementById("paramInfo");
+    const paramsList = document.getElementById("paramsList");
     fillSelect(merkSel, Object.keys(modellen));
+
     function updateTypes() {
       const types = modellen[merkSel.value] || [];
       fillSelect(typeSel, types);
-      updateParams();
+      updateParamsList();
     }
-    function updateParams() {
+    function updateParamsList() {
       const merk = merkSel.value, type = typeSel.value;
       const paramData = parameters[merk]?.[type] || {};
-      fillSelect(paramSel, Object.keys(paramData));
-      updateInfo();
-    }
-    function updateInfo() {
-      const merk = merkSel.value, type = typeSel.value, param = paramSel.value;
-      const paramObj = parameters[merk]?.[type]?.[param];
-      paramInfo.innerHTML = paramObj
-        ? `<strong>${paramObj.naam}</strong><br>
-            <b>Uitleg:</b> ${paramObj.uitleg}<br>
-            <b>Fabrieksinstelling:</b> ${paramObj.fabrieksinstelling}`
-        : 'Selecteer een parameter voor meer info.';
+      const paramKeys = Object.keys(paramData);
+      if (paramKeys.length === 0) {
+        paramsList.innerHTML = "<em>Geen parameters gevonden voor dit model.</em>";
+        return;
+      }
+      paramsList.innerHTML = paramKeys.map(param => {
+        const obj = paramData[param];
+        return `<div class="card">
+                  <strong>${param}: ${obj.naam}</strong>
+                  <b>Uitleg:</b> ${obj.uitleg}<br>
+                  <b>Fabrieksinstelling:</b> ${obj.fabrieksinstelling}
+                </div>`;
+      }).join("");
     }
     merkSel.addEventListener("change", updateTypes);
-    typeSel.addEventListener("change", updateParams);
-    paramSel.addEventListener("change", updateInfo);
+    typeSel.addEventListener("change", updateParamsList);
     updateTypes();
   }
 
@@ -242,3 +244,4 @@
 </script>
 </body>
 </html>
+

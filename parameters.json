@@ -1,0 +1,28 @@
+{
+  "Intergas": {
+    "HRE": {
+      "P01": "Max. vermogen",
+      "P02": "CV-aanvoertemperatuur",
+      "P03": "Tapcomfort",
+      "P04": "Pompnalooptijd",
+      "P05": "Max. tapwatertemp",
+      "P06": "Min. modulatie",
+      "P07": "Max. modulatie",
+      "P08": "Legionella bescherming",
+      "P09": "Antipendel tijd",
+      "P10": "Verwarmingscurve"
+    },
+    "Xtreme": {
+      "X01": "Pompstarttijd",
+      "X02": "Eco-modus",
+      "X03": "Anti-legionella",
+      "X04": "Nalooptijd pomp",
+      "X05": "Max. CV-temp",
+      "X06": "Min. vermogen",
+      "X07": "Max. vermogen",
+      "X08": "Warmwatertemp",
+      "X09": "Modulatiegrens",
+      "X10": "Bypass-instelling"
+    }
+  }
+}

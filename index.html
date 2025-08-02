@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CVCheck App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 1rem;
+      background-color: #ffffff;
+      color: #222;
+    }
+    header {
+      background-color: #E30613;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .info {
+      padding: 1rem;
+      background-color: #f3f3f3;
+      border-left: 5px solid #E30613;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CVCheck</h1>
+    <p>Intergas - HRE & Xtreme</p>
+  </header>
+
+  <label for="merk">Merk</label>
+  <select id="merk"></select>
+
+  <label for="type">Type</label>
+  <select id="type"></select>
+
+  <label for="code">Storingscode</label>
+  <select id="code"></select>
+  <div id="codeInfo" class="info"></div>
+
+  <label for="param">Parameter</label>
+  <select id="param"></select>
+  <div id="paramInfo" class="info"></div>
+
+  <script>
+    let modellen, codes, parameters;
+
+    async function loadData() {
+      modellen = await fetch("modellen.json").then(r => r.json());
+      codes = await fetch("codes.json").then(r => r.json());
+      parameters = await fetch("parameters.json").then(r => r.json());
+      init();
+    }
+
+    function fillSelect(select, options) {
+      select.innerHTML = "";
+      options.forEach(val => {
+        const opt = document.createElement("option");
+        opt.value = val;
+        opt.textContent = val;
+        select.appendChild(opt);
+      });
+    }
+
+    function init() {
+      const merkSel = document.getElementById("merk");
+      const typeSel = document.getElementById("type");
+      const codeSel = document.getElementById("code");
+      const paramSel = document.getElementById("param");
+      const codeInfo = document.getElementById("codeInfo");
+      const paramInfo = document.getElementById("paramInfo");
+
+      fillSelect(merkSel, Object.keys(modellen));
+      merkSel.addEventListener("change", () => {
+        const types = modellen[merkSel.value];
+        fillSelect(typeSel, types);
+        updateDropdowns();
+      });
+
+      typeSel.addEventListener("change", updateDropdowns);
+
+      function updateDropdowns() {
+        const merk = merkSel.value;
+        const type = typeSel.value;
+
+        const codeData = codes[merk]?.[type] || {};
+        const paramData = parameters[merk]?.[type] || {};
+
+        fillSelect(codeSel, Object.keys(codeData));
+        fillSelect(paramSel, Object.keys(paramData));
+        codeInfo.textContent = "";
+        paramInfo.textContent = "";
+      }
+
+      codeSel.addEventListener("change", () => {
+        const merk = merkSel.value;
+        const type = typeSel.value;
+        const code = codeSel.value;
+        const uitleg = codes[merk][type][code] || "";
+        codeInfo.textContent = uitleg;
+      });
+
+      paramSel.addEventListener("change", () => {
+        const merk = merkSel.value;
+        const type = typeSel.value;
+        const param = paramSel.value;
+        const naam = parameters[merk][type][param] || "";
+        paramInfo.textContent = naam;
+      });
+
+      merkSel.dispatchEvent(new Event("change"));
+    }
+
+    loadData();
+  </script>
+</body>
+</html>

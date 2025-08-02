@@ -1,0 +1,43 @@
+{
+  "Intergas": {
+    "HRE": {
+      "0": "Geen storing",
+      "1": "Geen ionisatie",
+      "2": "Geen ventilatorfeedback",
+      "3": "Vlam tijdens stand-by",
+      "4": "CV-temperatuur te hoog",
+      "5": "Branderblokkering",
+      "6": "Geen communicatie print",
+      "7": "Waterdruk te laag",
+      "8": "Sensor defect",
+      "9": "Foutieve parameter",
+      "10": "Driewegklep defect",
+      "11": "Gasdruk te laag",
+      "12": "Retourtemperatuur te hoog",
+      "13": "Geen warmtevraag",
+      "14": "Beveiliging rookgas",
+      "15": "Pomp loopt niet",
+      "16": "Flow sensor defect",
+      "17": "Onbekende storing"
+    },
+    "Xtreme": {
+      "F000": "Sensor S0 defect",
+      "F001": "CV-aanvoertemp te hoog",
+      "F002": "Warmwatertemp te hoog",
+      "F003": "Rookgastemp te hoog",
+      "F004": "Waterdruk te laag",
+      "F005": "Branderstoring",
+      "F006": "Geen vlamdetectie",
+      "F007": "Sensor S1 defect",
+      "F008": "Sensor S2 defect",
+      "F009": "Pompstoring",
+      "F010": "Driewegklepstoring",
+      "F011": "Rookgasbeveiliging",
+      "F012": "Lucht in systeem",
+      "F013": "Temperatuurverschil te groot",
+      "F014": "Boilertemperatuur te laag",
+      "F015": "Netspanning te laag",
+      "F016": "Onbekende storing"
+    }
+  }
+}
